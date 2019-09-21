@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         player1Turn = true;
         roundCount = 0;
-        
+
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.mandelbrotRed)));
         getSupportActionBar().setTitle(R.string.player_1_turn);
     }
