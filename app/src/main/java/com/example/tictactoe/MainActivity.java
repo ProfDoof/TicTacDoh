@@ -99,16 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else
         {
             player1Turn = !player1Turn;
-            if (player1Turn)
-            {
-                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.mandelbrotRed)));
-                getSupportActionBar().setTitle(R.string.player_1_turn);
-            }
-            else
-            {
-                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.juliaBlue)));
-                getSupportActionBar().setTitle(R.string.player_2_turn);
-            }
+            setTitleBarColorForPlayerTurn();
         }
     }
 
@@ -237,6 +228,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         player2Points = savedInstanceState.getInt("player2Points");
         player1Turn = savedInstanceState.getBoolean("player1Turn");
         restoreImageButtonsState(savedInstanceState.getIntegerArrayList("imageButtonsState"));
+        setTitleBarColorForPlayerTurn();
     }
 
     private ArrayList<Integer> saveImageButtonsState()
@@ -262,6 +254,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 buttons[row][column].setImageResource(imageButtonsResourceIds.get((row*3)+column));
                 buttons[row][column].setTag(imageButtonsResourceIds.get((row*3)+column));
             }
+        }
+    }
+
+    private void setTitleBarColorForPlayerTurn()
+    {
+        if (player1Turn)
+        {
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.mandelbrotRed)));
+            getSupportActionBar().setTitle(R.string.player_1_turn);
+        }
+        else
+        {
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.juliaBlue)));
+            getSupportActionBar().setTitle(R.string.player_2_turn);
         }
     }
 }
