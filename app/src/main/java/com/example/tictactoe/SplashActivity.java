@@ -21,14 +21,8 @@ public class SplashActivity extends AppCompatActivity {
                 | View.SYSTEM_UI_FLAG_FULLSCREEN
         );
 
-        final Context context = this;
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(context, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        }, 1000);
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
